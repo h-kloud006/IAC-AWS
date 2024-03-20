@@ -22,7 +22,7 @@ steps:
      backendServiceAWS: 'terraform-aws'
      backendAWSBucketName: 'taas1s301'
      backendAWSKey: 'tf.tfstate'
-     environmentServiceNameAWS: 'aws-conn'
+     environmentServiceNameAWS: 'terraform-aws'
  - task: TerraformTaskV4@4
    displayName: 'Terraform Apply'
    inputs:
@@ -31,4 +31,4 @@ steps:
      backendServiceAWS: 'terraform-aws'
      backendAWSBucketName: 'taas1s301'
      backendAWSKey: 'tf.tfstate'
-     environmentServiceNameAWS: 'aws-conn'
+     environmentServiceNameAWS: 'terraform-aws'
