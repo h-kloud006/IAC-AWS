@@ -1,0 +1,34 @@
+trigger:
+  branches:
+    include:
+    - master
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+ - task: TerraformTaskV4@4
+   displayName: 'Terraform Init'
+   inputs:
+     provider: 'aws'
+     command: 'init'
+     backendServiceAWS: 'aws-conn'
+     backendAWSBucketName: 'taas1s301'
+     backendAWSKey: 'tf.tfstate'
+ - task: TerraformTaskV4@4
+   displayName: 'Terraform Plan'
+   inputs:
+     provider: 'aws'
+     command: 'plan'
+     backendServiceAWS: 'aws-conn'
+     backendAWSBucketName: 'taas1s301'
+     backendAWSKey: 'tf.tfstate'
+     environmentServiceNameAWS: 'aws-conn'
+ - task: TerraformTaskV4@4
+   displayName: 'Terraform Apply'
+   inputs:
+     provider: 'aws'
+     command: 'apply'
+     backendServiceAWS: 'aws-conn'
+     backendAWSBucketName: 'taas1s301'
+     backendAWSKey: 'tf.tfstate'
+     environmentServiceNameAWS: 'aws-conn'
