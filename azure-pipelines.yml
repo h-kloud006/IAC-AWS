@@ -11,7 +11,7 @@ steps:
    inputs:
      provider: 'aws'
      command: 'init'
-     backendServiceAWS: 'aws-conn'
+     backendServiceAWS: 'terraform-aws'
      backendAWSBucketName: 'taas1s301'
      backendAWSKey: 'tf.tfstate'
  - task: TerraformTaskV4@4
@@ -19,7 +19,7 @@ steps:
    inputs:
      provider: 'aws'
      command: 'plan'
-     backendServiceAWS: 'aws-conn'
+     backendServiceAWS: 'terraform-aws'
      backendAWSBucketName: 'taas1s301'
      backendAWSKey: 'tf.tfstate'
      environmentServiceNameAWS: 'aws-conn'
@@ -28,7 +28,7 @@ steps:
    inputs:
      provider: 'aws'
      command: 'apply'
-     backendServiceAWS: 'aws-conn'
+     backendServiceAWS: 'terraform-aws'
      backendAWSBucketName: 'taas1s301'
      backendAWSKey: 'tf.tfstate'
      environmentServiceNameAWS: 'aws-conn'
